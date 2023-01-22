@@ -48,28 +48,30 @@
         </div>
       </div>
       <div class="grid lg:grid-cols-3 sm:grid-cols-1 mt-7 gap-7">
+        @foreach ($courses as $course )
         <div
-          class="rounded-md bg-white bg-[url('{{ asset('images/courses-1.png') }})] bg-center bg-cover overflow-hidden"
+          class="rounded-md bg-white bg-center bg-cover overflow-hidden"
+          style="background-image: url({{ $course->thumbnail }})"
         >
-          <a href="">
+          <a href="{{ $course->video }}" target="_blank">
             <div
               class="flex p-5 min-h-[220px] flex-col items-start gradient-buttom"
             >
               <div class="flex w-full">
                 <span
                   class="bg-white rounded-3xl py-3 px-5 text-primary text-sm mr-auto"
-                  ><b>$25</b>/Course</span
+                  ><b>${{ $course->price }}</b>/Course</span
                 >
                 <span
                   class="rounded-3xl bg-slate-500 py-3 px-5 text-primary text-sm ml-auto"
                 >
                   <i class="bx bxs-star text-yellow-400"></i>
-                  <span class="text-yellow-400"> (2.1k) </span>
+                  <span class="text-yellow-400"> ({{ $course->like }}) </span>
                 </span>
               </div>
               <div class="mt-auto">
                 <h5 class="text-white text-lg font-bold">
-                  Basic programming (HTML, CSS)
+                 {{ $course->title }}
                 </h5>
               </div>
               <div class="flex w-full mt-2">
@@ -80,8 +82,7 @@
                     alt=""
                   />
                   <div class="pl-3 text-white">
-                    <span class="block text-sm">Raphael</span>
-                    <span class="text-xs">Teacher</span>
+                    <span class="block text-sm">Admin</span>
                   </div>
                 </div>
                 <div class="text-sm ml-auto flex">
@@ -91,119 +92,20 @@
                     <i class="bx bx-play text-lg"></i>
                   </span>
                   <div class="pl-3 text-white">
-                    <span class="block text-sm">20 Video</span>
+                    <span class="block text-sm">1 Video</span>
                   </div>
                 </div>
               </div>
             </div>
           </a>
         </div>
+        @endforeach
 
-        <div
-          class="rounded-md bg-white bg-[url('{{ asset('images/courses-2.png') }}')] bg-center bg-cover overflow-hidden"
-        >
-          <a href="">
-            <div
-              class="flex p-5 min-h-[220px] flex-col items-start gradient-buttom"
-            >
-              <div class="flex w-full">
-                <span
-                  class="bg-white rounded-3xl py-3 px-5 text-primary text-sm mr-auto"
-                  ><b>$25</b>/Course</span
-                >
-                <span
-                  class="rounded-3xl bg-slate-500 py-3 px-5 text-primary text-sm ml-auto"
-                >
-                  <i class="bx bxs-star text-yellow-400"></i>
-                  <span class="text-yellow-400"> (2.1k) </span>
-                </span>
-              </div>
-              <div class="mt-auto">
-                <h5 class="text-white text-lg font-bold">
-                  Basic programming (HTML, CSS)
-                </h5>
-              </div>
-              <div class="flex w-full mt-2">
-                <div class="text-sm mr-auto flex">
-                  <img
-                    src="{{ asset('images/user-1.png') }}"
-                    class="max-h-[24px] max-w-[24px]"
-                    alt=""
-                  />
-                  <div class="pl-3 text-white">
-                    <span class="block text-sm">Raphael</span>
-                    <span class="text-xs">Teacher</span>
-                  </div>
-                </div>
-                <div class="text-sm ml-auto flex">
-                  <span
-                    class="h-[22px] w-[22px] bg-slate-500 rounded-full flex text-white justify-center items-center"
-                  >
-                    <i class="bx bx-play text-lg"></i>
-                  </span>
-                  <div class="pl-3 text-white">
-                    <span class="block text-sm">20 Video</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </a>
-        </div>
-
-        <div
-          class="rounded-md bg-white bg-[url('{{ asset('images/courses-3.png') }}')] bg-center bg-cover overflow-hidden"
-        >
-          <a href="">
-            <div
-              class="flex p-5 min-h-[220px] flex-col items-start gradient-buttom"
-            >
-              <div class="flex w-full">
-                <span
-                  class="bg-white rounded-3xl py-3 px-5 text-primary text-sm mr-auto"
-                  ><b>$25</b>/Course</span
-                >
-                <span
-                  class="rounded-3xl bg-slate-500 py-3 px-5 text-primary text-sm ml-auto"
-                >
-                  <i class="bx bxs-star text-yellow-400"></i>
-                  <span class="text-yellow-400"> (2.1k) </span>
-                </span>
-              </div>
-              <div class="mt-auto">
-                <h5 class="text-white text-lg font-bold">
-                  Basic programming (HTML, CSS)
-                </h5>
-              </div>
-              <div class="flex w-full mt-2">
-                <div class="text-sm mr-auto flex">
-                  <img
-                    src="{{ asset('images/user-1.png') }}"
-                    class="max-h-[24px] max-w-[24px]"
-                    alt=""
-                  />
-                  <div class="pl-3 text-white">
-                    <span class="block text-sm">Raphael</span>
-                    <span class="text-xs">Teacher</span>
-                  </div>
-                </div>
-                <div class="text-sm ml-auto flex">
-                  <span
-                    class="h-[22px] w-[22px] bg-slate-500 rounded-full flex text-white justify-center items-center"
-                  >
-                    <i class="bx bx-play text-lg"></i>
-                  </span>
-                  <div class="pl-3 text-white">
-                    <span class="block text-sm">20 Video</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </a>
-        </div>
+        
       </div>
-      <div class="w-full justify-center mt-7 flex">
+      {{-- <div class="w-full justify-center mt-7 flex">
         <button class="btn-round font-bold">See Course</button>
-      </div>
+      </div> --}}
     </div>
   </section>
   <section id="mentor" class="py-7">
@@ -314,84 +216,76 @@
           <div
             class="shadow-sm p-5 max-w-[350px] rounded-md bg-white relative z-10 sm:ml-[250px]"
           >
+
             <div class="flex">
               <div>
                 <img
-                  src="{{ asset('/images/user-1.png') }}"
-                  class="h-[24px] w-[24px] object-cover"
+                  src="{{ $firstFeedback->avatar ?? '' }}"
+                  class="h-[24px] w-[24px] object-cover rounded-full"
                   alt=""
                 />
               </div>
               <div class="pl-3">
                 <span class="font-bold text-dark block text-sm"
-                  >Au ah gelap</span
+                  >{{ $firstFeedback->user_name ?? '' }}</span
                 >
-                <span class="text-grey text-sm">UI Designer</span>
+                <span class="text-grey text-sm">{{ $firstFeedback->user_role ?? '' }}</span>
               </div>
             </div>
             <span class="text-[40px] text-grey">“</span>
             <p class="text-sm text-grey mt-[-25px]">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-              fermentum
+              {{ $firstFeedback->content ?? '' }}
             </p>
             <ul class="mt-3 flex">
-              <li class="mr-2">
-                <i class="bx bxs-star text-yellow-400"></i>
-              </li>
-              <li class="mr-2">
-                <i class="bx bxs-star text-yellow-400"></i>
-              </li>
-              <li class="mr-2">
-                <i class="bx bxs-star text-yellow-400"></i>
-              </li>
-              <li class="mr-2">
-                <i class="bx bxs-star text-yellow-400"></i>
-              </li>
-              <li class="mr-2">
-                <i class="bx bxs-star text-yellow-400"></i>
-              </li>
+
+              @for ($i = 0; $i <  $firstFeedback->rate; $i++)
+                <li class="mr-2">
+                  <i class="bx bxs-star text-yellow-400"></i>
+                </li>
+              @endfor
+              @for ($i = 5; $i >  $firstFeedback->rate; $i--)
+                <li class="mr-2">
+                  <i class="bx bxs-star text-gray-400"></i>
+                </li>
+              @endfor
             </ul>
           </div>
 
           <div
             class="shadow-sm p-5 max-w-[350px] rounded-md bg-white relative mt-5 sm:mt-[-40px]"
           >
-            <div class="flex">
-              <div></div>
-                <img
-                  src="{{ asset('/images/user-1.png') }}"
-                  class="h-[24px] w-[24px] object-cover"
-                  alt=""
-                />
-              </div>
-              <div class="pl-3">
-                <span class="font-bold text-dark block text-sm"
-                  >Au ah terang</span
-                >
-                <span class="text-grey text-sm">UI Designer</span>
-              </div>
-            <span class="text-[40px] text-grey">“</span>
-            <p class="text-sm text-grey mt-[-25px]">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-              fermentum
-            </p>
-            <ul class="mt-3 flex">
+          <div class="flex">
+            <div>
+              <img
+                src="{{ $secondFeedback->avatar ?? '' }}"
+                class="h-[24px] w-[24px] object-cover rounded-full"
+                alt=""
+              />
+            </div>
+            <div class="pl-3">
+              <span class="font-bold text-dark block text-sm"
+                >{{ $secondFeedback->user_name ?? '' }}</span
+              >
+              <span class="text-grey text-sm">{{ $secondFeedback->user_role ?? '' }}</span>
+            </div>
+          </div>
+          <span class="text-[40px] text-grey">“</span>
+          <p class="text-sm text-grey mt-[-25px]">
+            {{ $secondFeedback->content ?? '' }}
+          </p>
+          <ul class="mt-3 flex">
+
+            @for ($i = 0; $i <  $secondFeedback->rate; $i++)
               <li class="mr-2">
                 <i class="bx bxs-star text-yellow-400"></i>
               </li>
+            @endfor
+            @for ($i = 5; $i >  $secondFeedback->rate; $i--)
               <li class="mr-2">
-                <i class="bx bxs-star text-yellow-400"></i>
+                <i class="bx bxs-star text-gray-400"></i>
               </li>
-              <li class="mr-2">
-                <i class="bx bxs-star text-yellow-400"></i>
-              </li>
-              <li class="mr-2">
-                <i class="bx bxs-star text-yellow-400"></i>
-              </li>
-              <li class="mr-2">
-                <i class="bx bxs-star text-yellow-400"></i>
-              </li>
-            </ul>
+            @endfor
+          </ul>
           </div>
         </div>
       </div>
