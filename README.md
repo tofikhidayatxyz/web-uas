@@ -1,3 +1,3 @@
-NIM: 2020040056
-Nama: Tofik Hidayat
+NIM: 2020040056 <br>
+Nama: Tofik Hidayat<br>
 Youtube Url: https://youtu.be/0IMQc-jOabA
